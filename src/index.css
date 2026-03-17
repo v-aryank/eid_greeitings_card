@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 25% 1%;
+    --foreground: 220 14% 96%;
+
+    --card: 220 40% 6%;
+    --card-foreground: 220 14% 96%;
+
+    --popover: 220 40% 6%;
+    --popover-foreground: 220 14% 96%;
+
+    --primary: 43 72% 52%;
+    --primary-foreground: 222 80% 5%;
+
+    --secondary: 217 50% 10%;
+    --secondary-foreground: 220 14% 96%;
+
+    --muted: 217 40% 12%;
+    --muted-foreground: 220 10% 55%;
+
+    --accent: 45 93% 76%;
+    --accent-foreground: 222 80% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 43 50% 25%;
+    --input: 217 40% 12%;
+    --ring: 43 72% 52%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 222 80% 5%;
+    --sidebar-foreground: 220 14% 96%;
+    --sidebar-primary: 43 72% 52%;
+    --sidebar-primary-foreground: 222 80% 5%;
+    --sidebar-accent: 217 50% 14%;
+    --sidebar-accent-foreground: 220 14% 96%;
+    --sidebar-border: 43 50% 30%;
+    --sidebar-ring: 43 72% 52%;
+
+    --gold: 43 72% 52%;
+    --gold-glow: 45 93% 76%;
+    --midnight: 222 80% 3%;
+    --navy: 217 50% 8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #B8860B, #F5D060, #FDE68A, #F5D060, #B8860B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-gold {
+    filter: drop-shadow(0 0 12px hsl(45 93% 76% / 0.5)) drop-shadow(0 0 40px hsl(43 72% 52% / 0.3));
+  }
+
+  .border-gold-gradient {
+    border-image: linear-gradient(135deg, hsl(43 72% 52%), hsl(45 93% 76%), hsl(43 72% 52%)) 1;
+  }
+
+  .card-glow {
+    box-shadow: 
+      0 0 30px hsl(43 72% 52% / 0.08),
+      0 0 60px hsl(43 72% 52% / 0.04),
+      inset 0 1px 0 hsl(45 93% 76% / 0.1);
+  }
+}
