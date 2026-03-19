@@ -6,10 +6,12 @@ import FairyLights from "@/components/FairyLights";
 import TopOrnaments from "@/components/TopOrnaments";
 import EidGreetingCard from "@/components/EidGreetingCard";
 import BottomDecor from "@/components/BottomDecor";
+import Fireworks from "@/components/Fireworks";
 
 const Index = () => {
   const [hasPlayed, setHasPlayed] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [fireworksTrigger, setFireworksTrigger] = useState(false);
 
   useEffect(() => {
     const audio = document.getElementById('bg-music') as HTMLAudioElement;
@@ -86,6 +88,12 @@ const Index = () => {
       {/* Layer 1.75: Top hanging ornaments */}
       <TopOrnaments />
 
+      {/* Fireworks effect */}
+      <Fireworks
+        trigger={fireworksTrigger}
+        onComplete={() => setFireworksTrigger(false)}
+      />
+
       {/* Layer 2: Moon top-left, large and prominent */}
       <CrescentMoon className="top-0 left-0 sm:top-4 sm:left-4 z-20" size={230} face="left" rotateDeg={5} />
 
@@ -103,7 +111,7 @@ const Index = () => {
       {/* Music toggle button */}
       <button
         onClick={toggleMusic}
-        className="fixed bottom-4 right-4 z-50 bg-white/20 backdrop-blur-sm rounded-full p-3 hover:bg-white/30 transition-colors"
+        className="fixed bottom-4 left-4 z-50 bg-white/20 backdrop-blur-sm rounded-full p-3 hover:bg-white/30 transition-colors"
         aria-label={isPlaying ? 'Pause music' : 'Play music'}
       >
         {isPlaying ? (
@@ -115,6 +123,15 @@ const Index = () => {
             <path d="M8 5v14l11-7z"/>
           </svg>
         )}
+      </button>
+
+      {/* Fireworks button */}
+      <button
+        onClick={() => setFireworksTrigger(true)}
+        className="fixed bottom-4 right-4 z-50 bg-white/20 backdrop-blur-sm rounded-full p-3 hover:bg-white/30 transition-colors"
+        aria-label="Launch fireworks"
+      >
+        <span className="text-2xl">✨</span>
       </button>
     </div>
   );
